@@ -1,5 +1,7 @@
 # Custom sentences and intents - the basics
 
+To use intent scripts you have to install the [intent script](https://www.home-assistant.io/integrations/intent_script) integration.
+
 Custom sentences and intents come in pairs, linked by an intent name.
 ```
 language: "en"
