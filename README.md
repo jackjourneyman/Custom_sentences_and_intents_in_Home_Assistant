@@ -51,6 +51,8 @@ Please make comments and suggestions in the [discussions page](https://github.co
 
 [Documentation](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/documentation.md)
 
+[My voice assistant is slow](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/voice_assistant_speed.md)
+
 [Tools and shortcuts](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/resources.md)
 
 [Wrinkles](https://github.com/jackjourneyman/custom-sentences-and-intents-in-Home-Assistant/blob/main/wrinkles.md)
