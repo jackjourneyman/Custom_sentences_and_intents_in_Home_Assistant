@@ -8,6 +8,8 @@ Troubleshooting "I'm sorry I don't understand" is easier if you know what your v
 
 ![Assist debug](https://github.com/jackjourneyman/custom-sentences-and-intents-in-Home-Assistant/blob/main/assist_debug.png)
 
+"25 to 3" is not the same as "twenty-five to three".
+
 ### Collisions
 
 In theory custom sentences should take precedence over built-in sentences, but this doesn't always happen. It's a particular problem when the custom sentence contains the words "in" or "on" - "What's in the diary?" is likely to give the error "No area named diary".
