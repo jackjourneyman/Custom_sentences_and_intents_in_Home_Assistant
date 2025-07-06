@@ -1,6 +1,8 @@
 # Speaking Clock
 
-The custom sentence and the intent here are simple. The challenge is to get your voice assistant to speak the time naturally - "a quarter to five" instead of "16:45".
+The custom sentence and the intent here are simple. The challenge is to get your voice assistant to speak the time naturally - "a quarter to five" instead of "16:45". This is done in a template rather than in the intent script.
+
+> To use intent scripts you have to install the [intent script](https://www.home-assistant.io/integrations/intent_script) integration.
 
 ## Custom sentence
 ```
