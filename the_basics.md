@@ -33,7 +33,7 @@ intents:
 ```
 where ```<IntentName>``` is the name of the intent the sentence points to.
 
-Intents are stored together in ```configuration.yaml```, but their number will grow rapidly so it is good practice to keep them in a yaml file of their own, then add this to ```configuration.yaml``` with the line:
+Intent scripts are stored together in ```configuration.yaml```, but their number will grow rapidly so it is good practice to keep them in a yaml file of their own, then add this to ```configuration.yaml``` with the line:
 ```
 intent_script: !include intents.yaml
 ```
