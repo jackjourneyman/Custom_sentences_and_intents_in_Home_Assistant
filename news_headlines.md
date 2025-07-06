@@ -6,6 +6,8 @@ This intent reads the top six headlines from the [BBC](https://www.bbc.co.uk/new
 
 It uses the custom integration [Feedparser](https://github.com/custom-components/feedparser/blob/master/README.md) to extract them from a BBC RSS feed - the particular one used here is UK news http://feeds.bbci.co.uk/news/rss.xml, but there are a [many others](http://news.bbc.co.uk/rss/feeds.opml) covering different parts of the world.
 
+> To use intent scripts you have to install the [intent script](https://www.home-assistant.io/integrations/intent_script) integration.
+
 ### Sensor
 ```
 - platform: feedparser
