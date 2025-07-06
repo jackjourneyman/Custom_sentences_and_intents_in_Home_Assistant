@@ -4,6 +4,8 @@ Built-in sentences for timers only work on ESPHome and Wyoming voice satellites,
 
 You can control [timer helpers](https://www.home-assistant.io/integrations/timer/) previously created in HA, however.
 
+> To use intent scripts you have to install the [intent script](https://www.home-assistant.io/integrations/intent_script) integration.
+
 # Start timer
 
 ## Custom sentence
