@@ -6,6 +6,8 @@ It works by subtracting the current time from the target time specified by the u
 
 As it stands it has limitations. You can only set the alarm for five minute intervals - "five past", "ten past" etc. - and the alarm can only be set 12 hours ahead.
 
+> To use intent scripts you have to install the [intent script](https://www.home-assistant.io/integrations/intent_script) integration.
+
 ## Custom sentence
 
 ```
