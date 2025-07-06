@@ -1,5 +1,7 @@
 # World Clock
 
+> To use intent scripts you have to install the [intent script](https://www.home-assistant.io/integrations/intent_script) integration.
+
 ## Custom sentence
 ```
 language: "en"
