@@ -2,7 +2,7 @@
 
 Custom sentences and intent scripts are an alternative to automations for controlling voice assistants. 
 
-The custom sentence acts as the trigger. It passes parameters to the intent script, which carries out the required actions and plays the TTS resonse.
+The custom sentence acts as the trigger. It passes parameters to the intent script, which carries out the required actions and plays the TTS response.
 
 You can use them to extend and personalise Home Assistant's built-in sentences, or to send the TTS response to a speaker other than the one in your voice assistant. Sentences can be marked up with alternate phrases and words that may be omitted, and values passed to the intent script can be tightly controlled. The scripts support templating.
 
