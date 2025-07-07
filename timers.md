@@ -239,3 +239,5 @@ actions:
       tts_sentence: Your timer has finished
 mode: single
 ```
+
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
