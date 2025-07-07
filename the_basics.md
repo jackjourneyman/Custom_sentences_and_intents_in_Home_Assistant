@@ -94,7 +94,7 @@ lists:
 ```
 > **Note:** If you specify a list of options and the user provides a value not on the list, you will get the default error message from your voice assistant - "Sorry, I don't understand" or something similar. If you specify a wildcard, it's up to you to use the intent to filter out invalid options and provide an error message.
 
-If the user is likely to use a word that is different from the string you want to pass to the intent, you can specify "in" and "out" values. For example "Start the kitchen timer" could pass on the entity ID of the timer to be started.
+If the user is likely to use a word that is different from the string you want to pass to the intent, you can specify "in" and "out" values. For example ```Start the { kitchen } timer``` could pass on the entity ID of the timer to be started.
 ```
 lists:
   timer:
