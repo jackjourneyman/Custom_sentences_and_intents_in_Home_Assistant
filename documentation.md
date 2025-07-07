@@ -2,6 +2,8 @@
 
 [Built-in intents](https://developers.home-assistant.io/docs/intent_builtin/)
 
+[Custom sentences in configuration.yaml](https://www.home-assistant.io/voice_control/custom_sentences_yaml/)
+
 [Custom sentence syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/)
 
 [Intent script](https://www.home-assistant.io/integrations/intent_script/)
