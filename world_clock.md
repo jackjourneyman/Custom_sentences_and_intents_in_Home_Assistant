@@ -45,7 +45,7 @@ You could list the locations for which sensors have been defined in the custom s
         - "New York"
         - "Paris"
   ```
-But if the user gave a name not on the list, the intent would fall back on the default Assist message "Sorry I don't understand". Using a wildcard makes it possible to filter out unknown entities in the intent and provide a custom message. (It is not currently possible to define a default value in a list.)
+But if the user gave a name not on the list, the intent would fall back on the default Assist message "Sorry I don't understand". Using a wildcard makes it possible to filter out unknown entities in the intent and provide a custom message.
 
 **In the intent...**
 ```
@@ -63,3 +63,4 @@ If the sensor hasn't been defined in the [worldclock integration](https://www.ho
 
 ```sensor.starter_phrase``` is an optional template sensor containing a [random (and meaningless) phrase](https://github.com/jackjourneyman/custom-sentences-and-intents-in-Home-Assistant/blob/main/random_phrases.md) to start the sentence with. Phrases change every minute. Notice that half the phrases are empty strings, so the expression will only be heard 50% of the time.
 
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
