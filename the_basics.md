@@ -23,7 +23,7 @@ CustomWhatTime:
         media_player_entity_id: media_player.kitchen
         message: Too late
 ```
-Custom sentences should be saved as yaml files in ```config/custom_sentences/<language_code>/``` with a separate file for each sentence. Being in English, the examples here are saved in ```config/custom_sentences/en/```. The name of the yaml file doesn't matter, but they should all begin with
+Custom sentences should be [saved as yaml files](https://www.home-assistant.io/voice_control/custom_sentences_yaml/#setting-up-sentences-in-the-config-directory) in ```config/custom_sentences/<language_code>/``` with a separate file for each sentence. Being in English, the examples here are saved in ```config/custom_sentences/en/```. The name of the yaml file doesn't matter, but they should all begin with
 ```
 language: "en"
 intents:
