@@ -57,3 +57,5 @@ You can include a persistent notification to troubleshoot variable values:
 If you need to compare times, it's much easier if you convert them to seconds first.
 
 Common actions like [delay](https://www.home-assistant.io/docs/scripts/#wait-for-time-to-pass-delay) and [timer.start](https://www.home-assistant.io/integrations/timer/) accept parameters in seconds, so it's not necessary to convert them back.
+
+< [Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
