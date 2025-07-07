@@ -102,7 +102,7 @@ lists:
       - in: "kitchen"
         out: "timer.kitchen"
       - in: "cooker"
-        out: "timer.alarm"
+        out: "timer.cooker"
       - in: "egg"
         out: "timer.egg"
 ```
