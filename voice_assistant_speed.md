@@ -22,3 +22,5 @@ This represents the time taken by Assist to process the text provided by STT and
 If you feel your voice assistant is repsonding slowly, currently your only option is to fine-tune individual steps in the pipeline. Some TTS services are faster than others, for example, so you could try out one like [Elevenlabs](https://elevenlabs.io/text-to-speech) that prioritises speed. You can even build your own private [inference server](https://heywillow.io/components/willow-inference-server/), using a Nvidia GPU card to power natural language processing.
 
 If you have an [ESPHome device](https://esphome.io/components/voice_assistant.html) (including Voice PE) loading additional components such as Bluetooth may have a significant impact on performance.
+
+< [Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
