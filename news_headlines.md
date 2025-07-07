@@ -74,6 +74,6 @@ The delay action is needed to to give the "Hang on a moment" TTS time to play. (
 Steps through the first six headline attributes. It's important to include a full stop after each headline ```{{ entry.title }}.``` so that each one is read as a distinct sentence - this can affect the phrasing of the TTS.
 
 
-
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
 
 
