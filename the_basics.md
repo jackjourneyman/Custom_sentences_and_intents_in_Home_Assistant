@@ -215,6 +215,6 @@ DeleteShoppingListItem:
                 tts_sentence: "Sorry. Can't find {{ item }} in the list"
 ```
 
-
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
 
 
