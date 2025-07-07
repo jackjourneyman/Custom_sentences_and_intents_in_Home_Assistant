@@ -31,7 +31,7 @@ intents:
 ```
 where ```<IntentName>``` is the name of the intent the sentence points to.
 
-Intent scripts are stored together in ```configuration.yaml```, with the key ```intent_script:```. Their number will grow rapidly so it is good practice to keep them in a yaml file of their own, then add this to ```configuration.yaml``` with the line:
+Intent scripts are stored together in ```configuration.yaml```, under the key ```intent_script:```. Their number will grow rapidly so it is good practice to keep them in a yaml file of their own, then add this to ```configuration.yaml``` with the line:
 ```
 intent_script: !include intents.yaml
 ```
