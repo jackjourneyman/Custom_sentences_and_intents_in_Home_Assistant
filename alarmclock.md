@@ -143,3 +143,4 @@ If the alarm time ```alarm``` is less than the current time (ie the next day) ad
 
 The alarm can sound with an automation similar to the one suggested in [Timers](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/timers.md#timer-finished-automation-optional).
 
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
