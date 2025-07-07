@@ -95,3 +95,5 @@ Then cover every possible permutation of hours and minutes...
 ## Notes
 
 ```now().strftime('%M') | int % 5 == 0``` minutes after or before the hour are divisible by five, therefore "ten past" rather than "ten minutes past".
+
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
