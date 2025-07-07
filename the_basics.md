@@ -185,7 +185,7 @@ QueryShoppingListItem:
 
 * The third action calls a script to deliver the TTS response, which will be "yes" if ```found``` is true, otherwise "no".
 
-> Notice that in TTS statements and HA commands the slot value ```item``` is enclosed in {{ curly brackets }}, marking the value as *output*. In the template the value is being *processed*, so there are no curly brackets, and since this is a variable not a HA sensor value no normal brackets or quotes are needed either. More details [here](https://community.home-assistant.io/t/how-to-read-a-template-in-yaml-the-why-and-how-of-all-those-delimiters/843841).
+> Notice that in TTS statements and HA commands the slot value ```item``` is enclosed in {{ curly brackets }}, marking the value as *output*. In the template the value is being *processed*, so there are no curly brackets. More details [here](https://community.home-assistant.io/t/how-to-read-a-template-in-yaml-the-why-and-how-of-all-those-delimiters/843841).
 
 In the previous example the ```if... else...``` structure was in the TTS statement. You can also use the ```choose:``` action to specify different paths with different actions.
 ```
