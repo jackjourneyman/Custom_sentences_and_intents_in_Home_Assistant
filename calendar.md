@@ -139,7 +139,7 @@ CustomCalendarWeek:
 ```end_date_time: "{{ (now() + timedelta(days=7)).strftime('%Y-%m-%d 00:00:00') }}"``` This provides calendar entries for the next seven days, not for the week beginning next Monday...
 
 
-
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
 
 
 
