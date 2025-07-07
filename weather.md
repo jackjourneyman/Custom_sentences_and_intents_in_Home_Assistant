@@ -20,3 +20,5 @@ template:
               {{ states('weather.your_weather_entity') | replace('-', ' ') }}   # Change to ID of your weather entity
           {% endif %}
 ```
+
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
