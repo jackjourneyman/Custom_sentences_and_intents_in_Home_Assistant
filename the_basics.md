@@ -179,7 +179,7 @@ QueryShoppingListItem:
               "No. Can't find {{item}}"
           {% endif %}
 ```
-* The first action is a standard [todo list command](https://www.home-assistant.io/integrations/todo/), which finds incomplete items in the shopping list and lists them in the variable ```shopping_list_data```.
+* The first action is a standard [todo list command](https://www.home-assistant.io/integrations/todo/), which finds incomplete items in the shopping list and lists them in the variable ```shopping_list_data```. More on response variables [here](https://www.home-assistant.io/docs/scripts/perform-actions/#use-templates-to-handle-response-data).
 
 * The second action creates the variable ```found``` which will be true if coffee is in ```shopping_list_data```, false if not.
 
