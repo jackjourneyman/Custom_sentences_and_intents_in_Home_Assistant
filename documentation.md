@@ -17,3 +17,5 @@
 [Voice assistant configuration (ESPHome)](https://esphome.io/components/voice_assistant.html)
 
 [Voice in Home Assistant](https://developers.home-assistant.io/docs/voice/overview)
+
+< [Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
