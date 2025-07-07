@@ -70,3 +70,5 @@ To include this in an intent sentence, add ```{{ states('sensor.finished_phrase'
           ] | random }}
 ```
 To include this in an intent sentence, add ```{{ states('sensor.wait_phrase') }}```. There are no empty strings - if there's going to be a delay you need to say so.
+
+[< Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
