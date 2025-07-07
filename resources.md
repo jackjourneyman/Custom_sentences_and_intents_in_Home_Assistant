@@ -7,3 +7,5 @@ Useful tools and shortcuts.
 [Easy time](https://github.com/Petro31/easy-time-jinja)
 
 [Relative time plus](https://github.com/TheFes/relative-time-plus)
+
+< [Home](https://github.com/jackjourneyman/Custom_sentences_and_intents_in_Home_Assistant/blob/main/README.md)
