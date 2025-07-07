@@ -1,17 +1,14 @@
 # Custom sentences and intents in Home Assistant
 
-There are good reasons for using custom sentences and intent scripts in Home Assistant.
+Custom sentences and intent scripts are an alternative to automations for controlling voice assistants. 
 
-* A built-in sentence may not exist yet
-* The built-in sentence may not return the exact response you are looking for
-* You may want to send the response to a speaker other than the one in your Voice Assistant device
-* You may want more control over input than sentence triggers in an automation can give you
+The custom sentence acts as the trigger. It passes parameters to the intent script, which carries out the required actions and plays the TTS resonse.
 
-Documentation exists for [custom sentence syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/), but there is very little for intents. They are referred to as [Intent scripts](https://www.home-assistant.io/integrations/intent_script/) but they are actually an odd mixture of script and template.
+You can use them to extend and personalise Home Assistant's built-in sentences, or to send the TTS response to a speaker other than the one in your voice assistant. Sentences can be marked up with alternate phrases and words that may be omitted, and the values to be passed to the intent script can be tightly controlled. The scripts support templating.
 
-Here are some simple, practical examples of what you can do.
+Here are some simple, practical examples of what you can do, including setting timers and alarms and managing shopping lists.
    
-They are quite modular - everything doesn't have to be crammed into the intent. Templates can be used to construct common phrases that can be repeated in different places. Scripts can be used to carry out common actions, and these may be easier to maintain, particularly if you prefer to use the UI.
+The examples are quite modular - everything doesn't have to be crammed into the intent. Templates can be used to construct common phrases that can be repeated in different places. Scripts can be used to carry out common actions, and these may be easier to maintain, particularly if you prefer to use the UI.
 
 To use intent scripts you have to install the [intent script](https://www.home-assistant.io/integrations/intent_script) integration.
 
