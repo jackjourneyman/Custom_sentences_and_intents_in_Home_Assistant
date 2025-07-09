@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Timers - Custom sentences and intent scripts</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Timers";
+    var mkdocs_page_input_path = "timers.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Custom sentences and intent scripts</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../the_basics/">The basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Intent scripts</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../alarmclock/">Alarm clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../calendar/">Calendar</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../news_headlines/">News headlines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../shopping_list/">Shopping list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaking_clock/">Speaking clock</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Timers</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#start-timer">Start timer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stop-timer">Stop timer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pause-timer">Pause timer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resume-timer">Resume timer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#timer-finished-automation-optional">Timer finished automation (optional)</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../world_clock/">World clock</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaker_script/">Speaker script</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Templates</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../random_phrases/">Random phrases</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../weather/">Weather</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Resources</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../voice_assistant_speed/">My voice assistant is slow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Wrinkles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://jackjourneyman.github.io/homeassistantindex/index.html">Home Assistant Index</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://community.home-assistant.io/t/the-home-assistant-cookbook-index/707144">Home Assistant Cookbook</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Custom sentences and intent scripts</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Intent scripts &raquo;</li>
+        
+      
+    
+    <li>Timers</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="timers">Timers</h1>
+<p>Built-in sentences for timers only work on ESPHome and Wyoming voice satellites, and even then the timer runs locally on the device - they are not exposed as entites in Home Assistant itself - which means you can't show progress on a dashboard, for example.</p>
+<p>You can control <a href="https://www.home-assistant.io/integrations/timer/">timer helpers</a> previously created in HA, however.</p>
+<blockquote>
+<p>To use intent scripts you have to install the <a href="https://www.home-assistant.io/integrations/intent_script">intent script</a> integration.</p>
+</blockquote>
+<h2 id="start-timer">Start timer</h2>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomTimerSet:
+    data:
+      # All times
+      - sentences:
+          - &quot;(start|set) [(a|the)] timer (for|to) {hours} (hour|hours) [and] {minutes} (minute|minutes) [and] {seconds} (second|seconds)&quot;
+      # All one hour
+      - sentences:
+          - &quot;(start|set) [(a|the)] timer (for|to) {hours} (hour|hours)&quot;
+        slots:
+          seconds: 0
+          minutes: 0
+      # All one minute
+      - sentences:
+          - &quot;(start|set) [(a|the)] timer (for|to) {minutes} (minute|minutes)&quot;
+        slots:
+          seconds: 0
+          hours: 0
+      # All one second
+      - sentences:
+          - &quot;(start|set) [(a|the)] timer (for|to) {seconds} (second|seconds)&quot;
+        slots:
+          minutes: 0
+          hours: 0
+      # Minutes and seconds
+      - sentences:
+          - &quot;(start|set) [(a|the)] timer (for|to) {minutes} (minute|minutes) [and] {seconds} (second|seconds)&quot;
+        slots:
+          hours: 0
+      # Hours and minutes
+      - sentences:
+          - &quot;(start|set) [(a|the)] timer (for|to) {hours} (hour|hours) [and] {minutes} (minute|minutes)&quot;
+        slots:
+          seconds: 0
+      # Halves
+      - sentences:
+          - &quot;(start|set) [(a|the)] timer (for|to) half a minute&quot;
+        slots:
+          hours: 0
+          minutes: 0
+          seconds: 30
+      - sentences:
+          - &quot;(start|set) [(a|the)] timer (for|to) {minutes} and a half minutes&quot;
+        slots:
+          hours: 0
+          seconds: 30
+      - sentences:
+          - &quot;(start|move) [(a|the)] timer (for|to) {hours} and a half hours&quot;
+        slots:
+          minutes: 30
+          seconds: 0
+lists:
+  seconds:
+    range:
+      from: 0
+      to: 120
+  minutes:
+    range:
+      from: 0
+      to: 120
+  hours:
+    range:
+      from: 0
+      to: 24
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>CustomTimerSet:
+  action:
+    - action: script.voice_timer
+      data:
+        duration: &quot;{{hours | int(default=0)}}:{{ minutes | int(default=0) }}:{{ seconds | int(default=0) }}&quot;
+    - action: script.tts_response
+      data:
+        tts_sentence: &quot;{{ states('sensor.finished_phrase') }}. Timer started.&quot;
+</code></pre>
+<p><strong>Script</strong></p>
+<pre><code>sequence:
+  - action: timer.start
+    metadata: {}
+    data:
+      duration: &quot;{{ duration }}&quot;
+    target:
+      entity_id: timer.voice_timer
+fields:
+  duration:
+    selector:
+      time: {}
+    name: duration
+    default: &quot;00:00:00&quot;
+    required: true
+alias: Voice timer
+</code></pre>
+<p><strong>Notes</strong></p>
+<p>Most of the work here is done in the custom sentence, which tries to cover every possible permutation needed to deliver hours, minutes and seconds to the intent. The intent itself is quite simple - it just launches a script to set the timer. Using a script makes maintenance easier, particularly if you prefer to use the UI.</p>
+<p><code>{{ states('sensor.finished_phrase') }}</code> is a <a href="../random_phrases/">random phrase</a> equivalent to "OK, done that."</p>
+<hr />
+<h2 id="stop-timer">Stop timer</h2>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomTimerCancel:
+    data:
+      - sentences:
+          - &quot;(stop | cancel) [the] timer&quot;
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>CustomTimerCancel:
+  action:
+    - action: script.voice_timer_cancel
+    - action: script.tts_response
+      data:
+        tts_sentence: &quot;{{ states('sensor.finished_phrase') }}. Timer cancelled.&quot;
+</code></pre>
+<p><strong>Script</strong></p>
+<pre><code>sequence:
+  - action: timer.cancel
+    metadata: {}
+    data: {}
+    target:
+      entity_id: timer.voice_timer
+alias: Voice timer cancel
+</code></pre>
+<hr />
+<h2 id="pause-timer">Pause timer</h2>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomTimerPause:
+    data:
+      - sentences:
+          - &quot;(pause | hold) [the] timer&quot;
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>CustomTimerPause:
+  action:
+    - action: script.voice_timer_pause
+    - action: script.tts_response
+      data:
+        tts_sentence: &quot;{{ states('sensor.finished_phrase') }}. Timer paused.&quot;
+</code></pre>
+<p><strong>Script</strong></p>
+<pre><code>sequence:
+  - action: timer.pause
+    metadata: {}
+    data: {}
+    target:
+      entity_id: timer.voice_timer
+alias: Voice timer pause
+</code></pre>
+<hr />
+<h2 id="resume-timer">Resume timer</h2>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomTimerResume:
+    data:
+      - sentences:
+          - &quot;start [the] timer again&quot;
+          - &quot;(restart | resume) [the] timer&quot;
+          - &quot;carry on [with] the timer&quot;
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>CustomTimerResume:
+  action:
+    - action: script.voice_timer_resume
+    - action: script.tts_response
+      data:
+        tts_sentence: &quot;{{ states('sensor.finished_phrase') }}. Timer started again.&quot;
+</code></pre>
+<p><strong>Script</strong></p>
+<pre><code>sequence:
+  - action: timer.start
+    metadata: {}
+    data: {}
+    target:
+      entity_id: timer.voice_timer
+fields: {}
+alias: Voice timer resume
+</code></pre>
+<hr />
+<h2 id="timer-finished-automation-optional">Timer finished automation (optional)</h2>
+<p>The event trigger will fire whenever <em>any</em> timer finishes, so if you have several you will need to find a way of distinguishing between them. One simple approach is to create an input_boolean flag for each one, to be turned on by the intent script that starts the timer, and off at the end of this automation.</p>
+<pre><code>alias: Voice timer finished
+triggers:
+  - trigger: event
+    event_type: timer.finished
+conditions: []
+actions:
+  - action: script.chime
+    metadata: {}
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - action: script.tts_response
+    metadata: {}
+    data:
+      tts_sentence: Your timer has finished
+mode: single
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../world_clock/" class="btn btn-neutral float-right" title="World clock">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../speaking_clock/" class="btn btn-neutral" title="Speaking clock"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../speaking_clock/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../world_clock/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

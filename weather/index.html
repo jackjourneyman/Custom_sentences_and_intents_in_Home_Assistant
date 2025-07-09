@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Weather - Custom sentences and intent scripts</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Weather";
+    var mkdocs_page_input_path = "weather.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Custom sentences and intent scripts</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../the_basics/">The basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Intent scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../alarmclock/">Alarm clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../calendar/">Calendar</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../news_headlines/">News headlines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../shopping_list/">Shopping list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaking_clock/">Speaking clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../timers/">Timers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../world_clock/">World clock</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaker_script/">Speaker script</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Templates</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../random_phrases/">Random phrases</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Weather</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Resources</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../voice_assistant_speed/">My voice assistant is slow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Wrinkles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://jackjourneyman.github.io/homeassistantindex/index.html">Home Assistant Index</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://community.home-assistant.io/t/the-home-assistant-cookbook-index/707144">Home Assistant Cookbook</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Custom sentences and intent scripts</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Templates &raquo;</li>
+        
+      
+    
+    <li>Weather</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="weather">Weather</h1>
+<p>There is a set of <a href="https://developers.home-assistant.io/docs/core/entity/weather">recommended codes</a> for weather conditions in Home Assistant weather integrations (recommended because they are included in translation files and will be displayed with the correct icon).</p>
+<p><img alt="Weather codes" src="../img/table_of_weather_codes.png" /></p>
+<p>Some of them are challenging for TTS because of the hyphens, and Amazon Polly at least insists on rendering partlycloudy as "part<em>lie</em> cloudy".</p>
+<p>You can iron out most of these problems with a short template:</p>
+<pre><code># Correct text that voice assistants find hard to pronounce in weather summary 
+
+template:
+  - sensor:
+      - name: Weather voice
+        state: &gt;
+          {% if is_state('weather.your_weather_entity', 'partlycloudy') %}      # Change to ID of your weather entity
+              partly cloudy
+          {% else %}
+              {{ states('weather.your_weather_entity') | replace('-', ' ') }}   # Change to ID of your weather entity
+          {% endif %}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../documentation/" class="btn btn-neutral float-right" title="Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../random_phrases/" class="btn btn-neutral" title="Random phrases"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../random_phrases/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

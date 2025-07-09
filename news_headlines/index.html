@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>News headlines - Custom sentences and intent scripts</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "News headlines";
+    var mkdocs_page_input_path = "news_headlines.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Custom sentences and intent scripts</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../the_basics/">The basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Intent scripts</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../alarmclock/">Alarm clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../calendar/">Calendar</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">News headlines</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../shopping_list/">Shopping list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaking_clock/">Speaking clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../timers/">Timers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../world_clock/">World clock</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaker_script/">Speaker script</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Templates</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../random_phrases/">Random phrases</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../weather/">Weather</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Resources</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../voice_assistant_speed/">My voice assistant is slow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Wrinkles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://jackjourneyman.github.io/homeassistantindex/index.html">Home Assistant Index</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://community.home-assistant.io/t/the-home-assistant-cookbook-index/707144">Home Assistant Cookbook</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Custom sentences and intent scripts</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Intent scripts &raquo;</li>
+        
+      
+    
+    <li>News headlines</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="news-headlines">News headlines</h1>
+<p>This intent reads the top six headlines from the <a href="https://www.bbc.co.uk/news">BBC</a>.</p>
+<p>It uses the custom integration <a href="https://github.com/custom-components/feedparser/blob/master/README.md">Feedparser</a> to extract them from a BBC RSS feed - the particular one used here is UK news http://feeds.bbci.co.uk/news/rss.xml, but there are a <a href="http://news.bbc.co.uk/rss/feeds.opml">many others</a> covering different parts of the world.</p>
+<blockquote>
+<p>To use intent scripts you have to install the <a href="https://www.home-assistant.io/integrations/intent_script">intent script</a> integration.</p>
+</blockquote>
+<p><strong>Sensor</strong></p>
+<pre><code>- platform: feedparser
+  name: BBC news feed
+  feed_url: &quot;http://feeds.bbci.co.uk/news/rss.xml&quot;
+  date_format: &quot;%a, %b %d %I:%M %p&quot;
+  inclusions:
+    - title
+  scan_interval:
+    hours: 1
+</code></pre>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  BbcNewsHeadlines:
+    data:
+      - sentences:
+          - &quot;( give | read | tell | get ) me the [news] ( headlines | top stories)&quot;
+          - &quot;( what's | what is ) in the [news] ( headlines | top stories)&quot;
+          - &quot;( give | read | get ) me a news bulletin&quot;
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>BbcNewsHeadlines:
+  action:
+    - action: script.tts_response
+      data:
+        tts_sentence: &quot;OK. {{ states('sensor.wait_phrase') }}&quot;
+    - delay:
+        seconds: 5
+    - action: script.tts_response
+      data:
+        tts_sentence: &gt;-  
+          {{ states('sensor.starter_phrase') }} These are the top headlines from the BBC.&quot;
+          {% for entry in state_attr('sensor.bbc_news_feed', 'entries')[:6] %}
+          {{ entry.title }}.
+          {% endfor %}
+</code></pre>
+<p><strong>Notes</strong></p>
+<p>The value of the Feedparser sensor is the number of headlines available (usualy about 30). The headlines themselves are attributes:</p>
+<p><img alt="Headlines" src="../img/headlines.png" /></p>
+<p><code>{{ states('sensor.wait_phrase') }}</code> A <a href="../random_phrases/">random phrase</a> asking the user to wait - "Hang on a moment" etc.</p>
+<p>This is a good idea because the TTS is a long one. Since TTS messages have to be completely compiled before they can be played there is likely to be a pause of several seconds.</p>
+<p>The delay action is needed to to give the "Hang on a moment" TTS time to play. (The same issue sometimes comes up when using media player in automations and scripts.)</p>
+<p><code>{{ states('sensor.starter_phrase') }}</code> A <a href="../random_phrases/">random phrase</a> to start off the response - "OK then" etc.</p>
+<pre><code>          {% for entry in state_attr('sensor.bbc_news_feed', 'entries')[:6] %}
+          {{ entry.title }}.
+          {% endfor %}
+</code></pre>
+<p>Steps through the first six headline attributes. It's important to include a full stop after each headline <code>{{ entry.title }}.</code> so that each one is read as a distinct sentence - this can affect the phrasing of the TTS.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../shopping_list/" class="btn btn-neutral float-right" title="Shopping list">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../calendar/" class="btn btn-neutral" title="Calendar"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../calendar/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../shopping_list/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

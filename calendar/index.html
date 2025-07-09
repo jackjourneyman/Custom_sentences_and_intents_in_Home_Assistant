@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Calendar - Custom sentences and intent scripts</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Calendar";
+    var mkdocs_page_input_path = "calendar.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Custom sentences and intent scripts</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../the_basics/">The basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Intent scripts</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../alarmclock/">Alarm clock</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Calendar</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#whats-in-the-diary">What's in the diary?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#whats-in-the-diary-tomorrow">What's in the diary tomorrow?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#whats-in-the-diary-next-week">What's in the diary next week?</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../news_headlines/">News headlines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../shopping_list/">Shopping list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaking_clock/">Speaking clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../timers/">Timers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../world_clock/">World clock</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaker_script/">Speaker script</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Templates</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../random_phrases/">Random phrases</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../weather/">Weather</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Resources</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../voice_assistant_speed/">My voice assistant is slow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Wrinkles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://jackjourneyman.github.io/homeassistantindex/index.html">Home Assistant Index</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://community.home-assistant.io/t/the-home-assistant-cookbook-index/707144">Home Assistant Cookbook</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Custom sentences and intent scripts</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Intent scripts &raquo;</li>
+        
+      
+    
+    <li>Calendar</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="calendar">Calendar</h1>
+<h2 id="whats-in-the-diary">What's in the diary?</h2>
+<blockquote>
+<p>To use intent scripts you have to install the <a href="https://www.home-assistant.io/integrations/intent_script">intent script</a> integration.</p>
+</blockquote>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomCalendarToday:
+    data:
+      - sentences:
+          - &quot;(What's | What is) happening&quot;
+          - &quot;(What's | What is) in the (calendar | diary) [for] today&quot;
+          - &quot;(What's | What is) in the (calendar | diary)&quot;
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>CustomCalendarToday:
+  action:
+    - action: calendar.get_events
+      target:
+        entity_id: calendar.mycalendar
+      data:
+        duration:
+          hours: &quot;{{ 23 - now().strftime('%H') | float(0) }}&quot;
+      response_variable: diary
+    - action: script.tts_response
+      data:
+        tts_sentence: &gt;-
+          {% if states('sensor.number_of_events_today') | float(0) &gt; 0 %}
+          Today you've got, 
+          {% for event in diary['calendar.mycalendar'].events %} 
+          {{ event.summary }}.
+          {% endfor %}
+          {% else %}
+          Nothing today.
+          {% endif %}
+</code></pre>
+<p><strong>Notes</strong></p>
+<p><strong>In the custom sentence...</strong></p>
+<p><code>"(What's | What is) in the (calendar | diary)"</code> is likely to create a <a href="../the_basics/#collisions">collision</a> on its own. To avoid this, make it a secondary sentence and make the primary sentence unique.</p>
+<p><strong>In the intent...</strong></p>
+<p><code>calendar.mycalendar</code> Substitute the name of your calendar entity.</p>
+<pre><code>       duration:
+         hours: &quot;{{ 23 - now().strftime('%H') | float(0) }}&quot;
+</code></pre>
+<p>Fetches calendar events for the rest of the day.</p>
+<hr />
+<h2 id="whats-in-the-diary-tomorrow">What's in the diary tomorrow?</h2>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomCalendarTomorrow:
+    data:
+      - sentences:
+          - &quot;(What's | What is) happening tomorrow&quot;
+          - &quot;(What's | What is) in the (calendar | diary) [for] tomorrow&quot;
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>CustomCalendarTomorrow:
+  action:
+    - action: calendar.get_events
+      target:
+        entity_id: calendar.mycalendar
+      data:
+        start_date_time: &quot;{{ (now() + timedelta(days=1)).strftime('%Y-%m-%d 00:00:00') }}&quot;
+        end_date_time: &quot;{{ (now() + timedelta(days=2)).strftime('%Y-%m-%d 00:00:00') }}&quot;
+      response_variable: diary
+    - action: script.tts_response
+      data:
+        tts_sentence: &gt;-
+          {% if states('sensor.number_of_events_tomorrow') | float(0) &gt; 0 %}
+          Tomorrow you've got, 
+          {% for event in diary['calendar.mycalendar'].events %} 
+          {{ event.summary }}.
+          {% endfor %}
+          {% else %}
+          Nothing tomorrow.
+          {% endif %}
+</code></pre>
+<p><strong>Notes</strong></p>
+<p><strong>In the intent...</strong></p>
+<p><code>calendar.mycalendar</code> Substitute the name of your calendar entity.</p>
+<hr />
+<h2 id="whats-in-the-diary-next-week">What's in the diary next week?</h2>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomCalendarWeek:
+    data:
+      - sentences:
+          - &quot;(What's | What is) happening (this | next) week&quot;
+          - &quot;(What's | What is) in the (calendar | diary) [for] (this | next) week&quot;
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>CustomCalendarWeek:
+  action:
+    - action: calendar.get_events
+      target:
+        entity_id: calendar.mycalendar
+      data:
+        start_date_time: &quot;{{ (now() + timedelta(days=1)).strftime('%Y-%m-%d 00:00:00') }}&quot;
+        end_date_time: &quot;{{ (now() + timedelta(days=7)).strftime('%Y-%m-%d 00:00:00') }}&quot;
+      response_variable: diary
+    - action: script.tts_response
+      data:
+        tts_sentence: &gt;-
+          {% for event in diary['calendar.mycalendar'].events | sort(attribute='start') %} 
+          {% set day = event.start %}
+          On {{ as_timestamp(day) | timestamp_custom('%A') }} you've got, {{ event.summary }}.
+          {% endfor %}
+</code></pre>
+<p><strong>Notes</strong></p>
+<p><strong>In the intent...</strong></p>
+<p><code>calendar.mycalendar</code> Substitute the name of your calendar entity.</p>
+<p><code>end_date_time: "{{ (now() + timedelta(days=7)).strftime('%Y-%m-%d 00:00:00') }}"</code> This provides calendar entries for the next seven days, not for the week beginning next Monday...</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../news_headlines/" class="btn btn-neutral float-right" title="News headlines">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../alarmclock/" class="btn btn-neutral" title="Alarm clock"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../alarmclock/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../news_headlines/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

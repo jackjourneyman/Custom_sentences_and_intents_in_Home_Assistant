@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Wrinkles - Custom sentences and intent scripts</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Wrinkles";
+    var mkdocs_page_input_path = "wrinkles.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Custom sentences and intent scripts</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../the_basics/">The basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Intent scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../alarmclock/">Alarm clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../calendar/">Calendar</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../news_headlines/">News headlines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../shopping_list/">Shopping list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaking_clock/">Speaking clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../timers/">Timers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../world_clock/">World clock</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaker_script/">Speaker script</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Templates</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../random_phrases/">Random phrases</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../weather/">Weather</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Resources</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../voice_assistant_speed/">My voice assistant is slow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Wrinkles</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#assist-debug">Assist debug</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#collisions">Collisions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#numbers">Numbers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#handling-time">Handling time</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://jackjourneyman.github.io/homeassistantindex/index.html">Home Assistant Index</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://community.home-assistant.io/t/the-home-assistant-cookbook-index/707144">Home Assistant Cookbook</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Custom sentences and intent scripts</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Resources &raquo;</li>
+        
+      
+    
+    <li>Wrinkles</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="wrinkes">Wrinkes</h1>
+<p>Simple things make life easier. Some of these have been mentioned elsewhere.</p>
+<h3 id="assist-debug">Assist debug</h3>
+<p>Troubleshooting "I'm sorry I don't understand" is easier if you know what your voice assistant actually heard. Assist debug will tell you this (<strong>Settings | Voice assistants</strong>, then click on the "three dots" overflow menu next to your voice assistant's name).</p>
+<p><img alt="Assist debug" src="../img/assist_debug.png" /></p>
+<p>"25 to 3" is not the same as "twenty-five to three".</p>
+<h3 id="collisions">Collisions</h3>
+<p>In theory custom sentences should take precedence over built-in sentences, but this doesn't always happen. It's a particular problem when the custom sentence contains the words "in" or "on" - "What's in the diary?" is likely to give the error "No area named diary".</p>
+<p>You can reduce the chances of this by creating a unique sentence first, then adding the problem sentence as an alternative. For example:</p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomCalendarToday:
+    data:
+      - sentences:
+          - &quot;(What's | What is) happening&quot;
+          - &quot;(What's | What is) in the (calendar | diary)&quot;
+</code></pre>
+<h2 id="numbers">Numbers</h2>
+<p>In custom sentences it's pretty safe to use words for numbers below twenty - "twelve" rather than "12". Above twenty your voice assistant may start rendering the numbers it "hears" as numerals - "25" rather than "twentyfive", so it may be necessary to include both in your custom sentences.</p>
+<p>This is because of the way Home Assistant’s intent recognition handles numbers, favouring word forms for common small numbers and numeric forms for larger or compound numbers, but the user's voice and intonation can also have odd effetcts.</p>
+<p>You can avoid the problem by defining numbers as ranges rather than in lists.</p>
+<pre><code>minute:
+  range:
+    from: 0
+    to: 59
+</code></pre>
+<h2 id="variables">Variables</h2>
+<p>If your intent script uses a lot of variables you may find that it runs, but the answer is not what you expected.</p>
+<p>You can include a persistent notification to troubleshoot variable values:</p>
+<pre><code>    - action: persistent_notification.create
+      data:
+        message: &quot;hour_val: {{ hour_val }}, time: {{ time }}, now_val: {{ now_val }}, alarm_val: {{ alarm_val }}, alarm: {{ alarm }}&quot;
+
+</code></pre>
+<p><img alt="Persistent notification" src="../img/notification.png" /></p>
+<h2 id="handling-time">Handling time</h2>
+<p>If you need to compare times, it's much easier if you convert them to seconds first.</p>
+<p>Common actions like <a href="https://www.home-assistant.io/docs/scripts/#wait-for-time-to-pass-delay">delay</a> and <a href="https://www.home-assistant.io/integrations/timer/">timer.start</a> accept parameters in seconds, so it's not necessary to convert them back.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../resources/" class="btn btn-neutral" title="Tools and shortcuts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../resources/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
