@@ -174,6 +174,27 @@ intents:
 <pre><code>intent_script: !include intents.yaml
 </code></pre>
 <p>For more information, see <a href="https://www.home-assistant.io/docs/configuration/splitting_configuration/">splitting configuration.yaml</a>.</p>
+<p>Entities in intent scripts do not have to be <a href="https://www.home-assistant.io/voice_control/voice_remote_expose_devices/">exposed to Assist</a> as they do in <a href="https://www.home-assistant.io/voice_control/builtin_sentences/">built-in sentences</a>. On the other hand, any <a href="https://www.home-assistant.io/voice_control/aliases">aliases</a> you have set up will not be available - these have to be provided by the custom sentence:</p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomRadioPlay:
+    data:
+      - sentences:
+          - &quot;Play {station}&quot;
+lists:
+  station:
+    values:
+      - in: &quot;radio one&quot;
+        out: &quot;FV:2/87&quot;
+      - in: &quot;radio 1&quot;
+        out: &quot;FV:2/87&quot;
+      - in: &quot;radio two&quot;
+        out: &quot;FV:2/88&quot;
+      - in: &quot;radio 2&quot;
+        out: &quot;FV:2/88&quot;
+      - in: &quot;radio too&quot;      
+        out: &quot;FV:2/88&quot;
+</code></pre>
 <h2 id="sentences">Sentences</h2>
 <h3 id="syntax">Syntax</h3>
 <p>Complete custom sentences can be listed</p>
@@ -183,13 +204,13 @@ intents:
           - &quot;what's the time&quot;
           - &quot;tell me the time&quot;
 </code></pre>
-<p>...or a single sentence can be marked to show alternative words, and words which can be omitted</p>
+<p>...or a single sentence can be marked to show (alternative words), and [words which can be omitted]:</p>
 <pre><code>      - sentences:
           - &quot;(what | what's | what is | tell me) [the] time [is it]&quot;
 </code></pre>
 <p>Documentation on custom sentence syntax can be found <a href="https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/">here</a>.</p>
 <h3 id="slots">Slots</h3>
-<p>Slots are placeholders in custom sentences containing values to be passed to the intent. In the sentence </p>
+<p>Slots are placeholders in custom sentences containing values to be passed to the intent script. In the sentence </p>
 <pre><code>          - &quot;play {album} by {artist}&quot;
 </code></pre>
 <p><code>{album}</code> and <code>{artist}</code> are slots. When a user says "Play Aqualung by Jethro Tull", the slot <code>album</code> captures "Aqualung" and the slot <code>artist</code> captures "Jethro Tull". The matched intent would be able to generate the TTS sentence</p>
@@ -216,16 +237,16 @@ lists:
     wildcard: true
 </code></pre>
 <blockquote>
-<p><strong>Note:</strong> If you specify a list of options and the user provides a value not on the list, you will get the default error message from your voice assistant - "Sorry, I don't understand" or something similar. If you specify a wildcard, it's up to you to use the intent to filter out invalid options and provide an error message.</p>
+<p><strong>Note:</strong> If you specify a list of options and the user provides a value not on the list, you will get the default error message from your voice assistant - "Sorry, I don't understand" or something similar. If you specify a wildcard, it's up to you to use the intent script to filter out invalid options and provide an error message.</p>
 </blockquote>
-<p>If the user is likely to use a word that is different from the string you want to pass to the intent, you can specify "in" and "out" values. For example <code>Start the { kitchen } timer</code> could pass on the entity ID of the timer to be started.</p>
+<p>If the user is likely to use a word that is different from the string you want to pass to the intent, you can specify "in" and "out" values. For example <code>Start the { kitchen } timer</code> could pass on the entity ID of the timer to be started. It can also create aliases, allowing users to refer to the same timer entity with different names.</p>
 <pre><code>lists:
   timer:
     values:
       - in: &quot;kitchen&quot;
         out: &quot;timer.kitchen&quot;
       - in: &quot;cooker&quot;
-        out: &quot;timer.cooker&quot;
+        out: &quot;timer.kitchen&quot;
       - in: &quot;egg&quot;
         out: &quot;timer.egg&quot;
 </code></pre>
