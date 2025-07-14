@@ -64,6 +64,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#intents">Intents</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -174,7 +176,7 @@ intents:
 <pre><code>intent_script: !include intents.yaml
 </code></pre>
 <p>For more information, see <a href="https://www.home-assistant.io/docs/configuration/splitting_configuration/">splitting configuration.yaml</a>.</p>
-<p>Entities in intent scripts do not have to be <a href="https://www.home-assistant.io/voice_control/voice_remote_expose_devices/">exposed to Assist</a> as they do in <a href="https://www.home-assistant.io/voice_control/builtin_sentences/">built-in sentences</a>. On the other hand, any <a href="https://www.home-assistant.io/voice_control/aliases">aliases</a> you have set up will not be available - these have to be provided by the custom sentence:</p>
+<p>Entities in intent scripts do not have to be <a href="https://www.home-assistant.io/voice_control/voice_remote_expose_devices/">exposed to Assist</a> as they do in <a href="https://www.home-assistant.io/voice_control/builtin_sentences/">built-in sentences</a>. On the other hand, any <a href="https://www.home-assistant.io/voice_control/aliases">aliases</a> you have set up will not be available - these have to be provided by the custom sentence. In this example radio station names are aliases for Sonos Favourites IDs:</p>
 <pre><code>language: &quot;en&quot;
 intents:
   CustomRadioPlay:
@@ -239,7 +241,7 @@ lists:
 <blockquote>
 <p><strong>Note:</strong> If you specify a list of options and the user provides a value not on the list, you will get the default error message from your voice assistant - "Sorry, I don't understand" or something similar. If you specify a wildcard, it's up to you to use the intent script to filter out invalid options and provide an error message.</p>
 </blockquote>
-<p>If the user is likely to use a word that is different from the string you want to pass to the intent, you can specify "in" and "out" values. For example <code>Start the { kitchen } timer</code> could pass on the entity ID of the timer to be started. It can also create aliases, allowing users to refer to the same timer entity with different names.</p>
+<p>If the user is likely to use a word that is different from the string you want to pass to the intent, you can specify "in" and "out" values. For example <code>Start the { kitchen } timer</code> could pass on the entity ID of the timer to be started. As mentioned earlier, it can also create aliases, allowing users to refer to the same timer entity with different names.</p>
 <pre><code>lists:
   timer:
     values:
@@ -248,7 +250,7 @@ lists:
       - in: &quot;cooker&quot;
         out: &quot;timer.kitchen&quot;
       - in: &quot;egg&quot;
-        out: &quot;timer.egg&quot;
+        out: &quot;timer.kitchen&quot;
 </code></pre>
 <p>If your slot value is a number, you can specify the range.</p>
 <pre><code>lists:
@@ -326,7 +328,7 @@ lists:
 </li>
 </ul>
 <blockquote>
-<p>Notice that in TTS statements and HA commands the slot value <code>item</code> is enclosed in {{ curly brackets }}, marking the value as <em>output</em>. In the template the value is being <em>processed</em>, so there are no curly brackets. More details <a href="https://community.home-assistant.io/t/how-to-read-a-template-in-yaml-the-why-and-how-of-all-those-delimiters/843841">here</a>.</p>
+<p><strong>Note:</strong> in TTS statements and HA commands the slot value <code>item</code> is enclosed in {{curly brackets}}, marking the value as <em>output</em>. In the template the value is being <em>processed</em>, so there are no curly brackets. More details <a href="https://community.home-assistant.io/t/whats-with-all-the-curly-brackets-jinja-template-delimiters-and-whitespace-control/812933">here</a>.</p>
 </blockquote>
 <p>In the previous example the <code>if... else...</code> structure was in the TTS statement. You can also use the <code>choose:</code> action to specify different paths with different actions.</p>
 <pre><code>DeleteShoppingListItem:
@@ -353,6 +355,72 @@ lists:
             - action: script.tts_response
               data:
                 tts_sentence: &quot;Sorry. Can't find {{ item }} in the list&quot;
+</code></pre>
+<h2 id="variables">Variables</h2>
+<p>Variables in an intent script are local, so they don't exist outside it. If you want to pass a value on to another script, then that script will have to have a <a href="https://www.home-assistant.io/integrations/script/#passing-variables-to-scripts">field</a> defined to receive it.</p>
+<pre><code>fields:
+  variable_field:
+    selector:
+      text: null
+    name: tts_sentence
+</code></pre>
+<p>In the intent, call the second script with the variable as data:</p>
+<pre><code>    - action: script.tts_response
+      data:
+        tts_sentence: &quot;{{ variable }}&quot;
+</code></pre>
+<p><strong>Slot values</strong> </p>
+<p>Slot values passed from the custom sentence can be used as variables throughout the intent script. If you want to carry out mathematical operations on them, bear in mind that in <a href="https://jinja.palletsprojects.com/en/latest/templates/">Jinja2</a> they will be strings, even if they were defined by the custom sentence as a range of numbers. They will have to be converted to numerical values using either <code>| float(0)</code> or <code>| int(0)</code>. In this example, <code>hour</code> was defined in the custom sentence as a number in the range 1-12:</p>
+<pre><code>        hour_val: &gt;-
+          {% if minute | int(0) &gt; 30 %}
+            {{ hour | int(0) -1 }}  
+          {% else %}
+            {{ hour | int(0) }}
+          {% endif %}
+</code></pre>
+<p><strong>Variables action</strong></p>
+<p>You can use the <code>variables:</code> action to create any variables you need in your intent script. </p>
+<pre><code>  action:
+    - variables:
+        hour_val: &gt;-
+          {% if minute | int(0) &gt; 30 %}
+            {{ hour | int(0) -1 }}  
+          {% else %}
+            {{ hour | int(0) }}
+          {% endif %}
+        time: &gt;- 
+          {% if now().strftime('%H') | int(0) &gt; 12 %}
+            {{ now().strftime('%H') | int(0) - 12 }}
+          {% else %}
+            {{ now().strftime('%H') | int(0) }}
+          {% endif %}
+        now_val: &quot;{{ time | float(0) * 3600 + now().strftime('%M') | int(0) * 60 + now().strftime('%S') | int(0) }}&quot;
+        alarm_val: &quot;{{ hour_val | int(0) * 3600 + minute | int(0) * 60 }}&quot;
+        alarm: &gt;-
+          {% if alarm_val | int(0) &lt; now_val | int(0) %}
+            {{ alarm_val | int(0) + 43200 - now_val | int(0) }}
+          {% else %}
+            {{ alarm_val | int(0) - now_val | int(0) }}
+          {% endif %}
+    - action: timer.start
+      target:
+        entity_id: timer.voice_alarm
+      data:
+        duration: &quot;{{ alarm }}&quot;
+</code></pre>
+<p><strong>Response variables</strong></p>
+<p><code>response_variable:</code> in an intent script holds the <a href="https://www.home-assistant.io/docs/scripts/perform-actions/#use-templates-to-handle-response-data">output of an action</a> and can be given any name you lke. In this example, the <code>todo.get_items</code> action returns a list of incomplete items on a shopping list and stores it in <code>shopping_list_data</code>.</p>
+<pre><code>    - action: todo.get_items
+      target:
+        entity_id: todo.shopping_list
+      data:
+        status: needs_action
+      response_variable: shopping_list_data
+</code></pre>
+<p><strong>Action response variables</strong></p>
+<p><code>action_response:</code> variables have a <a href="https://www.home-assistant.io/integrations/intent_script/#using-the-action-response">similar function</a>, but they are only used in <code>speech:</code> templates. They are always referenced by <code>action_response</code></p>
+<pre><code>speech:
+      text: &quot;{{ action_response['calendar.my_calendar'].events | length }}&quot;
 </code></pre>
               
             </div>
