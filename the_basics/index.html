@@ -64,6 +64,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#intents">Intents</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#choose">Choose</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
     </li>
     </ul>
@@ -335,6 +337,7 @@ lists:
 <blockquote>
 <p><strong>Note:</strong> in TTS statements and HA commands the slot value <code>item</code> is enclosed in {{curly brackets}}, marking the value as <em>output</em>. In the template the value is being <em>processed</em>, so there are no curly brackets. More details <a href="https://community.home-assistant.io/t/whats-with-all-the-curly-brackets-jinja-template-delimiters-and-whitespace-control/812933">here</a>.</p>
 </blockquote>
+<h2 id="choose">Choose</h2>
 <p>In the previous example the <code>if... else...</code> structure was in the TTS statement. You can also use the <code>choose:</code> action to specify different paths with different actions.</p>
 <pre><code>DeleteShoppingListItem:
   action:
