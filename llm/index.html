@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Working with LLMs - Custom sentences and intent scripts</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Working with LLMs";
+    var mkdocs_page_input_path = "llm.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Custom sentences and intent scripts</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../the_basics/">The basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Intent scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../alarmclock/">Alarm clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../calendar/">Calendar</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../news_headlines/">News headlines</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../shopping_list/">Shopping list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaking_clock/">Speaking clock</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../timers/">Timers</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../world_clock/">World clock</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">LLMs</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Working with LLMs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#default-conversation-agent">Default conversation agent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#in-specific-intent-scripts">In specific intent scripts</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Scripts</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../speaker_script/">Speaker script</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Templates</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../random_phrases/">Random phrases</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../weather/">Weather</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Resources</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../voice_assistant_speed/">My voice assistant is slow</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Wrinkles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://jackjourneyman.github.io/homeassistantindex/index.html">Home Assistant Index</a>
+                    </li>
+                    <li class="toctree-l1"><a class="" href="https://community.home-assistant.io/t/the-home-assistant-cookbook-index/707144">Home Assistant Cookbook</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Custom sentences and intent scripts</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>LLMs &raquo;</li>
+        
+      
+    
+    <li>Working with LLMs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="working-with-llms">Working with LLMs</h1>
+<p>If you want to give your voice assistant <a href="https://www.home-assistant.io/voice_control/assist_create_open_ai_personality/">a bit of personality</a> you can add an LLM. This can open up a world of more flexible commands.</p>
+<pre><code>Alexa, it's cold in here
+
+OK, I've turned the heating on in the living room
+</code></pre>
+<p>And of course, silly jokes:</p>
+<pre><code>Alexa, why did the scarecrow win an award?
+
+Because he was outstanding in his field
+</code></pre>
+<p>There are two ways of going about it. Which you choose will depend on your priorities.</p>
+<h3 id="default-conversation-agent">Default conversation agent</h3>
+<p>Go to <strong>Settings | Voice Assistants</strong> and click on the name of your assistant. If the AI integration has been properly installed, a conversation agent should appear in the drop-down list. </p>
+<p>You can define different assistants with different conversation agents and voices. If your system uses custom sentences, turning on the "Prefer handling commands locally" toggle ensures that the AI agent will only come into play if no sentence has been defined. (The switch is hidden if you are using the default Home Assistant agent.)</p>
+<p><img alt="Custom conversation agent" src="../img/conversation_agents.png" width="400" /></p>
+<p>This is by far the simplest approach, but it does have some drawbacks:</p>
+<ul>
+<li>
+<p>There is no way to change the default conversation agent dynamically in an automation or script. You <em>can</em> change the whole assist pipeline, however.</p>
+</li>
+<li>
+<p>There may be significant delays before responses, especially if they are long. (Google AI is particularly long-winded.)</p>
+</li>
+<li>
+<p>All the entities you may want to control have to be exposed to Assist, with appropriate aliases. If there are a lot of them, this may also have an impact on response times. <a href="https://www.home-assistant.io/voice_control/best_practices/">Best practice</a> is only to expose the entities you actually need.</p>
+</li>
+<li>
+<p>An AI agent may be unable to do some apparently simple things. OpenAI will not set timers or alarms, for example, and it will ignore any custom sentences you may have set up to do it, even if "Prefer handling commands locally" is on. Some <a href="https://www.home-assistant.io/blog/2024/12/19/voice-chapter-8-assist-in-the-home/?utm_source=perplexity#timers">voice assistant devices</a> handle timers themselves, so this may not matter.</p>
+</li>
+<li>
+<p>It may significantly increase costs. If you are paying for a high quality voice, usage will be much higher.</p>
+</li>
+<li>
+<p>Unless you're using an <a href="https://esphome.io/components/voice_assistant.html">ESPHome device</a>, responses will be played through your voice assistant, which may not have the best quality speaker.</p>
+</li>
+<li>
+<p>You have to be connected to the internet.</p>
+</li>
+</ul>
+<h3 id="in-specific-intent-scripts">In specific intent scripts</h3>
+<p>To do this, you leave the conversation agent set to the default <code>Home Assistant</code>.</p>
+<ul>
+<li>
+<p>Your voice assistants will use built-in and custom sentences, as they would without AI.</p>
+</li>
+<li>
+<p>You can install several AI conversation agents and switch between them for different purposes.</p>
+</li>
+<li>
+<p>Longer delays will still occur when you use AI agents, but you can include phrases like "Hang on a moment..." to make them more acceptable.</p>
+</li>
+<li>
+<p>You will only have to expose entities to Assist if you expect to use them in built-in sentences. Intent scripts can access any Home Assistant entity.</p>
+</li>
+<li>
+<p>Custom sentences to set timers will still work.</p>
+</li>
+<li>
+<p>It is easier to control costs.</p>
+</li>
+<li>
+<p>Responses can be played on any speaker.</p>
+</li>
+</ul>
+<p>Here is an example of a custom sentence/intent script designed to allow general purpose questions to be directed to OpenAI.</p>
+<p><strong>Custom sentence</strong></p>
+<pre><code>language: &quot;en&quot;
+intents:
+  CustomOpenAI:
+    data:
+      - sentences:
+          - &quot;(how [is] | how's | how are | how does | how do | how did | how will | how long ) {question}&quot;
+          - &quot;(why [is] | why's | why are | why does | why do | why did | why will) {question}&quot;
+          - &quot;(when [is] | when's | when are | when does | when do | when did | when will) {question}&quot;
+          - &quot;(what [is] | what's | what are | what does | what do | what did | what will) {question}&quot;
+          - &quot;(which [is] | which are | which does | which do | which did | which will) {question}&quot;
+          - &quot;(where [is] | where's | where are | where does | where do | where did | where will) {question}&quot;
+          - &quot;(who [is] | who's | who are | who does | who do | who did | who will) {question}&quot;
+          - &quot;(is | are) [there] {question}&quot;
+lists:
+  question:
+    wildcard: true
+
+</code></pre>
+<p><strong>Intent</strong></p>
+<pre><code>CustomOpenAI:
+  action:
+    - choose:
+        - conditions: &quot;{{ is_state('binary_sensor.online', 'off') }}&quot;
+          sequence:
+            - action: script.tts_response
+              data:
+                tts_sentence: &quot;Sorry. There's no internet at the moment.&quot;
+        - conditions: &quot;{{ is_state('binary_sensor.online', 'on') }}&quot;
+          sequence:
+            - action: script.tts_response
+              data:
+                tts_sentence: &quot;Hold on, I'll check with Open AI.&quot;
+            - action: conversation.process
+              data:
+                agent_id: conversation.openai_conversation
+                text: &quot;{{ question }}&quot;
+              response_variable: api_response
+            - variables:
+                answer: &quot;{{ api_response.response.speech.plain.speech }}&quot;
+            - action: script.tts_response
+              data:
+                tts_sentence: &quot;{{ answer }}&quot;
+</code></pre>
+<p><strong>Notes</strong></p>
+<p><strong>In the custom sentence...</strong></p>
+<p><code>{question}</code> is a wildcard, so it could contain nonsense. If the AI conversation agent doesn't understand, it will say so, but it may also solemnly explain that the moon isn't made of green cheese.</p>
+<p><strong>In the intent...</strong></p>
+<p>The first choose condition allows a graceful exit if the internet is not available.</p>
+<p>The second choose condition opens with a warning that there may be a delay.</p>
+<p>The <code>conversation.process</code> action directs the <code>{question}</code> received from the custom sentence to the AI of your choice. If you don't know its <code>agent_id</code> you can find it by going to <strong>Developer Tools | Actions</strong> and selecting <code>conversation.process</code>, where you can pick the agent from a dropdown list. </p>
+<p><img alt="Developer Tools Actions" src="../img/developer_tools_actions.png" width="600" /></p>
+<p>If you then switch to yaml mode you can see its id.</p>
+<p><img alt="agent_id" src="../img/yaml_mode.png" width="600" /></p>
+<p><code>response_variable</code> will contain the whole <a href="https://developers.home-assistant.io/docs/intent_conversation_api?_highlight=conversation&amp;_highlight=response#conversation-response">API response</a>. <code>{{api_response.response.speech.plain.speech}}</code> extracts the actual text of the reply.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../speaker_script/" class="btn btn-neutral float-right" title="Speaker script">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../world_clock/" class="btn btn-neutral" title="World clock"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../world_clock/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../speaker_script/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
