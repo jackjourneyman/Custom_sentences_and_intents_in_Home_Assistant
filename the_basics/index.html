@@ -85,6 +85,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../timers/">Timers</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../where/">Where's my...</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../world_clock/">World clock</a>
                     </li>
                 </ul>
@@ -111,9 +113,9 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../voice_assistant_speed/">My voice assistant is slow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Tips</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Wrinkles</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
                     </li>
                     <li class="toctree-l1"><a class="" href="https://jackjourneyman.github.io/homeassistantindex/index.html">Home Assistant Index</a>
                     </li>
@@ -248,7 +250,7 @@ lists:
 <blockquote>
 <p><strong>Note:</strong> If you specify a list of options and the user provides a value not on the list, you will get the default error message from your voice assistant - "Sorry, I don't understand" or something similar. If you specify a wildcard, it's up to you to use the intent script to filter out invalid options and provide an error message.</p>
 </blockquote>
-<p>If the user is likely to use a word that is different from the string you want to pass to the intent, you can specify "in" and "out" values. For example <code>Start the { kitchen } timer</code> could pass on the entity ID of the timer to be started. As mentioned earlier, it can also create aliases, allowing users to refer to the same timer entity with different names.</p>
+<p>If the user is likely to use a word that is different from the string you want to pass to the intent, you can specify "in" and "out" values. For example <code>Start the { kitchen } timer</code> could pass on the entity ID of the timer to be started. As mentioned earlier, this is much like creating aliases, allowing users to refer to the same timer entity with different names.</p>
 <pre><code>lists:
   timer:
     values:
@@ -417,7 +419,7 @@ lists:
         duration: &quot;{{ alarm }}&quot;
 </code></pre>
 <p><strong>Response variables</strong></p>
-<p><code>response_variable:</code> in an intent script holds the <a href="https://www.home-assistant.io/docs/scripts/perform-actions/#use-templates-to-handle-response-data">output of an action</a> and can be given any name you lke. In this example, the <code>todo.get_items</code> action returns a list of incomplete items on a shopping list and stores it in <code>shopping_list_data</code>.</p>
+<p><code>response_variable:</code> in an intent script holds the <a href="https://www.home-assistant.io/docs/scripts/perform-actions/#use-templates-to-handle-response-data">output of an action</a> and can be given any name you like. In this example, the <code>todo.get_items</code> action returns a list of incomplete items on a shopping list and stores it in <code>shopping_list_data</code>.</p>
 <pre><code>    - action: todo.get_items
       target:
         entity_id: todo.shopping_list

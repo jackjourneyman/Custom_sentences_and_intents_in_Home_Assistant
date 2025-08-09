@@ -67,6 +67,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../timers/">Timers</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../where/">Where's my...</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../world_clock/">World clock</a>
                     </li>
                 </ul>
@@ -74,9 +76,9 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Working with LLMs</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#default-conversation-agent">Default conversation agent</a>
+    <li class="toctree-l2"><a class="reference internal" href="#make-the-llm-the-default-conversation-agent-and-enable-local-preference-options-3-and-5">Make the LLM the default conversation agent, and enable local preference (options 3 and 5)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#in-specific-intent-scripts">In specific intent scripts</a>
+    <li class="toctree-l2"><a class="reference internal" href="#do-not-allow-the-llm-to-control-assist-option-2">Do not allow the LLM to control Assist (option 2)</a>
     </li>
     </ul>
                     </li>
@@ -99,9 +101,9 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../voice_assistant_speed/">My voice assistant is slow</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Tips</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../wrinkles/">Wrinkles</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Tools and shortcuts</a>
                     </li>
                     <li class="toctree-l1"><a class="" href="https://jackjourneyman.github.io/homeassistantindex/index.html">Home Assistant Index</a>
                     </li>
@@ -145,7 +147,7 @@
             <div class="section">
               
                 <h1 id="working-with-llms">Working with LLMs</h1>
-<p>If you want to give your voice assistant <a href="https://www.home-assistant.io/voice_control/assist_create_open_ai_personality/">a bit of personality</a> you can add an LLM. This can open up a world of more flexible commands.</p>
+<p>If you want to give your voice assistant <a href="https://www.home-assistant.io/voice_control/assist_create_open_ai_personality/">a bit of personality</a> you can add an LLM to Assist. This can open up a world of more flexible commands.</p>
 <pre><code>Alexa, it's cold in here
 
 OK, I've turned the heating on in the living room
@@ -155,8 +157,20 @@ OK, I've turned the heating on in the living room
 
 Because he was outstanding in his field
 </code></pre>
-<p>There are two ways of going about it. Which you choose will depend on your priorities.</p>
-<h3 id="default-conversation-agent">Default conversation agent</h3>
+<p>There are <a href="https://community.home-assistant.io/t/blueprints-for-voice-commands-weather-calendar-music-assistant/838071">five pathways</a>  to using an LLM in Home Assistant (if you count not using one at all):</p>
+<p><img alt="LLM options" src="../img/llm_options.png" /></p>
+<p>Broadly, there are two use cases for custom sentences and scripts. Which you choose will depend on your priorities. </p>
+<ul>
+<li>
+<p>You have enabled local preference (options 3 and 5)</p>
+</li>
+<li>
+<p>You have not allowed the LLM to control Assist (option 2)</p>
+</li>
+</ul>
+<p>If you have given the LLM complete control of Assist, with no local preference (option 4), custom sentences will rarely come into play - perhaps only when the internet goes down.</p>
+<h3 id="make-the-llm-the-default-conversation-agent-and-enable-local-preference-options-3-and-5">Make the LLM the default conversation agent, and enable local preference (options 3 and 5)</h3>
+<p>If there is a custom or built-in sentence defined, Assist will use that, otherwise (with option 5) the LLM will take over.</p>
 <p>Go to <strong>Settings | Voice Assistants</strong> and click on the name of your assistant. If the AI integration has been properly installed, a conversation agent should appear in the drop-down list. </p>
 <p>You can define different assistants with different conversation agents and voices. If your system uses custom sentences, turning on the "Prefer handling commands locally" toggle ensures that the AI agent will only come into play if no sentence has been defined. (The switch is hidden if you are using the default Home Assistant agent.)</p>
 <p><img alt="Custom conversation agent" src="../img/conversation_agents.png" width="400" /></p>
@@ -184,7 +198,8 @@ Because he was outstanding in his field
 <p>You have to be connected to the internet.</p>
 </li>
 </ul>
-<h3 id="in-specific-intent-scripts">In specific intent scripts</h3>
+<h3 id="do-not-allow-the-llm-to-control-assist-option-2">Do not allow the LLM to control Assist (option 2)</h3>
+<p>If you do this, but you still want to use an LLM, you will need to write custom sentences which call the LLM conversation agent specifically.</p>
 <p>To do this, you leave the conversation agent set to the default <code>Home Assistant</code>.</p>
 <ul>
 <li>
