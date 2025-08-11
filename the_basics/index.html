@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../stylesheet/extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -281,7 +282,7 @@ intents:
 </code></pre>
 <h2 id="intents">Intents</h2>
 <p>Intent scripts, like normal scripts, are series of actions to be executed. They are likely to contain more templating than normal scripts, and the last action will probably be a TTS statement of some kind.</p>
-<p>If your custom sentence is a command, the first part of the intent will execute it and the second part will be TTS confirmation. For example:</p>
+<p>If your custom sentence is a command, the first part of the intent will probably execute it and the second part will be TTS confirmation. For example:</p>
 <pre><code>language: &quot;en&quot;
 intents:
   CustomSetTemperature:
@@ -336,9 +337,6 @@ lists:
 <p>The third action calls a script to deliver the TTS response, which will be "yes" if <code>found</code> is true, otherwise "no".</p>
 </li>
 </ul>
-<blockquote>
-<p><strong>Note:</strong> in TTS statements and HA commands the slot value <code>item</code> is enclosed in {{curly brackets}}, marking the value as <em>output</em>. In the template the value is being <em>processed</em>, so there are no curly brackets. More details <a href="https://community.home-assistant.io/t/whats-with-all-the-curly-brackets-jinja-template-delimiters-and-whitespace-control/812933">here</a>.</p>
-</blockquote>
 <h2 id="choose">Choose</h2>
 <p>In the previous example the <code>if... else...</code> structure was in the TTS statement. You can also use the <code>choose:</code> action to specify different paths with different actions.</p>
 <pre><code>DeleteShoppingListItem:

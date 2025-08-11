@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../stylesheet/extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -144,6 +145,9 @@
               
                 <h1 id="wheres-my">Where's my...</h1>
 <p>This custom sentence finds your lost phone/keys/wallet. It makes use of the <a href="https://github.com/agittins/bermuda">Bermuda</a> integration, which uses <a href="https://www.home-assistant.io/integrations/bluetooth/#before-you-begin">Bluetooth proxies</a> to track devices (and therefore people) from to room to room in the house. For each device, Bermuda creates two sensors <code>sensor.&lt;device&gt;_area</code> and <code>sensor.&lt;device&gt;_area_last_seen</code>.</p>
+<blockquote>
+<p>To use intent scripts you have to install the <a href="https://www.home-assistant.io/integrations/intent_script">intent script</a> integration.</p>
+</blockquote>
 <p><strong>Custom sentence</strong></p>
 <pre><code>language: &quot;en&quot;
 intents:

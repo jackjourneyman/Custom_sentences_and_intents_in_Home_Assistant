@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link href="../stylesheet/extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -101,11 +102,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#collisions">Collisions</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#maths">Maths</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#numbers">Numbers</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a>
+    <li class="toctree-l2"><a class="reference internal" href="#common-template-issues">Common template issues</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#handling-time">Handling time</a>
+    <li class="toctree-l2"><a class="reference internal" href="#time">Time</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#variable-values">Variable values</a>
     </li>
     </ul>
                     </li>
@@ -154,10 +159,12 @@
               
                 <h1 id="tips">Tips</h1>
 <p>Simple things make life easier. Some of these have been mentioned elsewhere.</p>
+<hr />
 <h3 id="assist-debug">Assist debug</h3>
 <p>Troubleshooting "I'm sorry I don't understand" is easier if you know what your voice assistant actually heard. Assist debug will tell you this (<strong>Settings | Voice assistants</strong>, then click on the "three dots" overflow menu next to your voice assistant's name).</p>
 <p><img alt="Assist debug" src="../img/assist_debug.png" /></p>
 <p>"25 to 3" is not the same as "twenty-five to three".</p>
+<hr />
 <h3 id="collisions">Collisions</h3>
 <p>In theory custom sentences should take precedence over built-in sentences, but this doesn't always happen. It's a particular problem when the custom sentence contains the words "in" or "on" - "What's in the diary?" is likely to give the error "No area named diary".</p>
 <p>You can reduce the chances of this by creating a unique sentence first, then adding the problem sentence as an alternative. For example:</p>
@@ -169,16 +176,57 @@ intents:
           - &quot;(What's | What is) happening&quot;
           - &quot;(What's | What is) in the (calendar | diary)&quot;
 </code></pre>
-<h2 id="numbers">Numbers</h2>
-<p>In custom sentences it's pretty safe to use words for numbers below twenty - "twelve" rather than "12". Above twenty your voice assistant may start rendering the numbers it "hears" as numerals - "25" rather than "twentyfive", so it may be necessary to include both in your custom sentences.</p>
-<p>This is because of the way Home Assistant’s intent recognition handles numbers, favouring word forms for common small numbers and numeric forms for larger or compound numbers, but the user's voice and intonation can also have odd effetcts.</p>
+<hr />
+<h3 id="maths">Maths</h3>
+<p>If you want to carry out mathematical operations on values passed from a custom sentence, bear in mind that in <a href="https://jinja.palletsprojects.com/en/latest/templates/">Jinja2</a> they will be strings, even if they were defined by the custom sentence as a range of numbers. They will have to be converted to numerical values using either <code>| float(0)</code> or <code>| int(0)</code>. In this example, <code>hour</code> was defined in the custom sentence as a number in the range 1-12:</p>
+<pre><code>        hour_val: &gt;-
+          {% if minute | int(0) &gt; 30 %}
+            {{ hour | int(0) -1 }}  
+          {% else %}
+            {{ hour | int(0) }}
+          {% endif %}
+</code></pre>
+<hr />
+<h3 id="numbers">Numbers</h3>
+<p>In custom sentences it's pretty safe to use words for numbers below twenty - "twelve" rather than "12". Above twenty your voice assistant may start rendering the numbers it "hears" as numerals - "25" rather than "twenty-five" - so it may be necessary to include both in your custom sentences.</p>
+<p>This is because of the way Home Assistant’s intent recognition handles numbers, favouring word forms for common small numbers and numeric forms for larger or compound numbers, but the user's voice and intonation can also have odd effects.</p>
 <p>You can avoid the problem by defining numbers as ranges rather than in lists.</p>
 <pre><code>minute:
   range:
     from: 0
     to: 59
 </code></pre>
-<h2 id="variables">Variables</h2>
+<hr />
+<h3 id="common-template-issues">Common template issues</h3>
+<p><strong>Curly backets</strong></p>
+<p>{{ }} - template output.</p>
+<p>{% %} - instructions for the rest of the template. Used for control structures like conditionals (i.e. if/elif/else) </p>
+<p><strong>Quotes</strong></p>
+<p>Single line templates <em>must</em> be enclosed in double quotes:</p>
+<pre><code>    - variables:
+        time: &quot;{{ states('sensor.worldclock_' ~ city|replace(' ', '_')|lower) }}&quot;
+</code></pre>
+<p>Multiple line templates don't have to be:</p>
+<pre><code>                tts_sentence: &gt;-
+                  {% if device == &quot;sensor.keys_tag_area&quot; %}
+                      They're in the {{ states(device) }}              
+                  {% else %}
+                      It's in the {{ states(device) }}
+                  {% endif %}
+</code></pre>
+<p><strong>Entity states</strong></p>
+<p>If you're using an entity ID:</p>
+<pre><code>They're in the {{ states('sensor.keys_tag_area') }}  
+</code></pre>
+<p>If you're using a variable:</p>
+<pre><code>They're in the {{ states(device) }}  
+</code></pre>
+<hr />
+<h3 id="time">Time</h3>
+<p>If you need to compare times, it's much easier if you convert them to seconds first.</p>
+<p>Common actions like <a href="https://www.home-assistant.io/docs/scripts/#wait-for-time-to-pass-delay">delay</a> and <a href="https://www.home-assistant.io/integrations/timer/">timer.start</a> accept parameters in seconds, so it's not necessary to convert them back.</p>
+<hr />
+<h3 id="variable-values">Variable values</h3>
 <p>If your intent script uses a lot of variables you may find that it runs, but the answer is not what you expected.</p>
 <p>You can include a persistent notification to troubleshoot variable values:</p>
 <pre><code>    - action: persistent_notification.create
@@ -187,9 +235,6 @@ intents:
 
 </code></pre>
 <p><img alt="Persistent notification" src="../img/notification.png" /></p>
-<h2 id="handling-time">Handling time</h2>
-<p>If you need to compare times, it's much easier if you convert them to seconds first.</p>
-<p>Common actions like <a href="https://www.home-assistant.io/docs/scripts/#wait-for-time-to-pass-delay">delay</a> and <a href="https://www.home-assistant.io/integrations/timer/">timer.start</a> accept parameters in seconds, so it's not necessary to convert them back.</p>
               
             </div>
           </div>
