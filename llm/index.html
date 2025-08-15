@@ -77,6 +77,12 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Working with LLMs</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#approaches">Approaches</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-intent-sript-for-specific-llm">Custom intent sript for specific LLM</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#descriptions">Descriptions</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -157,8 +163,9 @@ Because he was outstanding in his field
 <p>There are <a href="https://github.com/TheFes/ha-blueprints">five pathways</a> to using an LLM in Home Assistant (if you count not using one at all):</p>
 <p><img alt="LLM options" src="../img/llm_options.png" /></p>
 <p>Broadly, there is a use case for custom sentences and intent scripts with options 1-3 and 5. If you have given the LLM complete control of Assist, with no local preference (option 4), custom sentences will rarely come into play - perhaps only when the internet goes down.</p>
-<p>There are several approaches. Which you choose will depend on your priorities.</p>
-<p><strong>Make the LLM the default conversation agent, and enable local preference</strong></p>
+<h2 id="approaches">Approaches</h2>
+<p>There are several - which you choose will depend on your priorities.</p>
+<p><strong>1: Make the LLM the default conversation agent, and enable local preference</strong></p>
 <p>If there is a custom or built-in sentence defined, Assist will use that, otherwise the LLM will take over.</p>
 <p>Go to <strong>Settings | Voice Assistants</strong> and click on the name of your assistant. If the AI integration has been properly installed, a conversation agent should appear in the drop-down list. </p>
 <p>You can define different assistants with different conversation agents and voices. If your system uses custom sentences, turning on the "Prefer handling commands locally" toggle ensures that the AI agent will only come into play if no sentence has been defined. (The switch is hidden if you are using the default Home Assistant agent.)</p>
@@ -187,11 +194,11 @@ Because he was outstanding in his field
 <p>You have to be connected to the internet.</p>
 </li>
 </ul>
-<p><strong>Do not allow the LLM to control Assist</strong></p>
+<p><strong>2: Do not allow the LLM to control Assist</strong></p>
 <p>If you do this, you will need to write custom sentences which call the LLM conversation agent specifically. Leave the conversation agent set to the default <code>Home Assistant</code> and in the LLM configuration untick the "Control Home Assistant" box. </p>
 <ul>
 <li>
-<p>Your voice assistants will use built-in and custom sentences, as they would without AI.</p>
+<p>Your voice assistants will use built-in and custom sentences, as they would without AI. To use an LLM you will have to trigger specific intent scripts.</p>
 </li>
 <li>
 <p>You can install several AI conversation agents and switch between them for different purposes by using different intent scripts.</p>
@@ -212,7 +219,7 @@ Because he was outstanding in his field
 <p>Responses can be played on any speaker.</p>
 </li>
 </ul>
-<p><strong>Allow the LLM to control Assist, but do not make it the default conversation agent. Enable local preference</strong></p>
+<p><strong>3: Allow the LLM to control Assist, but do not make it the default conversation agent. Enable local preference</strong></p>
 <p>This is the middle ground. Again you will have to write specific intent scripts to make use of your LLM integration, but the values passed to the intent script will be interpreted more flexibly and it will be able to answer questions about your home.</p>
 <ul>
 <li>
@@ -228,6 +235,7 @@ Because he was outstanding in his field
 <p>Responses can be directed to any speaker.</p>
 </li>
 </ul>
+<h2 id="custom-intent-sript-for-specific-llm">Custom intent sript for specific LLM</h2>
 <p>Here is an example of a custom sentence/intent script designed to allow general purpose questions to be directed to OpenAI.</p>
 <blockquote>
 <p>To use intent scripts you have to install the <a href="https://www.home-assistant.io/integrations/intent_script">intent script</a> integration.</p>
@@ -287,6 +295,14 @@ lists:
 <p>If you then switch to yaml mode you can see its id.</p>
 <p><img alt="agent_id" src="../img/yaml_mode.png" width="600" /></p>
 <p><code>response_variable</code> will contain the whole <a href="https://developers.home-assistant.io/docs/intent_conversation_api?_highlight=conversation&amp;_highlight=response#conversation-response">API response</a>. <code>{{api_response.response.speech.plain.speech}}</code> extracts the actual text of the reply.</p>
+<h2 id="descriptions">Descriptions</h2>
+<p>Intent scripts, like normal scripts and automations, have <code>description:</code> keys. These are intended for human users, allowing them to make notes about what they were trying to do when they created them, <em>but an LLM will read them too</em>.</p>
+<p>Descriptions can be used to extend the prompt set up in the LLM integration with instructions relevant to that particular intent. If the description contains a function, like a template or a script, the LLM will process it and use the value returned. </p>
+<pre><code>description: &gt;
+  # Below is a list of areas with the tagging label 'room'. Use these areas when speaking about rooms in the house or entities associated with rooms.
+  # rooms: {{ label_areas('room') }}
+</code></pre>
+<p>Sounds like magic. It's certainly a black art. For a very sophisticated example see <a href="https://community.home-assistant.io/t/fridays-party-creating-a-private-agentic-ai-using-voice-assistant-tools/855862">Friday's Party</a>.</p>
               
             </div>
           </div>
